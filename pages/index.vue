@@ -1,72 +1,114 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        terradia-blog
-      </h1>
-      <h2 class="subtitle">
-        Blog
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <div class="hero">
+      <div class="container">
+        <h1>L'application qui facilite l'accès aux produits locaux.</h1>
       </div>
+    </div>
+
+    <div class="container">
+      <main>
+        <h2>Les dernières news</h2>
+        <ul>
+          <li v-for="post in posts">
+            <img :src="post.feature_image">
+            <div class="content">
+              <span>{{ post.authors[0].name }}</span>
+              <nuxt-link :to="{ path: post.slug }">{{ post.title }}</nuxt-link>
+              <p>{{ post.excerpt }}</p>
+            </div>
+          </li>
+        </ul>
+      </main>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
+  import { getPosts } from '~/api/posts';
+  export default {
+    async asyncData () {
+      const posts = await getPosts();
+      return { posts: posts }
+    }
   }
-}
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+<style lang="scss" scoped>
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  .hero {
+    clip-path: polygon(0 0, 100% 0, 100% 68%, 0 100%);
+    background: linear-gradient(to left, #2BA54C, #5CC04A, #8FDD3D 35%);
+    color: white;
+    text-align: center;
+    padding-top: 2em;
+    height: 15em;
+    h1 {
+      padding-top: 3em;
+      margin-bottom: 1em;
+      font-size: 25px;
+      text-transform: uppercase;
+      padding-bottom: 3em;
+    }
+    .hire {
+      background: darken($primary-color, 10%);
+      padding: .5em 3em;
+      margin: 2em 0 3em;
+      display: inline-block;
+      border-radius: 10px;
+      text-decoration: none;
+    }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+    p {
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+  }
+  .container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  main {
+    li {
+      background: white;
+      border-radius: 1em;
+      padding: .8em;
+      margin: 1em 0;
+      box-shadow: 5px 21px 40px 0px rgba(0,0,0,0.3);
+    }
+    img {
+      width: 100%;
+      border-radius: .2em;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .content {
+      padding: .5em;
+    }
+    a {
+      font-size: 1.5em;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      display: block;
+      margin: -.1em 0 .2em;
+    }
+    h2 {
+      padding: .8em;
+      margin: 1em 0;
+      text-transform: uppercase;
+      font-size: .8em;
+    }
+    span {
+      color: $primary-color;
+      text-transform: uppercase;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    main li {
+      display: grid;
+      grid-template-columns: 180px auto;
+      grid-column-gap: 1em;
+    }
+  }
 </style>
