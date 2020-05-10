@@ -2,7 +2,8 @@
   <div>
     <div class="hero">
       <div class="container">
-        <h1>L'application qui facilite l'accès aux produits locaux.</h1>
+        <h1>Le blog de l'application qui<br>
+          facilite l'accès aux produits locaux.</h1>
       </div>
     </div>
 
@@ -13,9 +14,9 @@
           <li v-for="post in posts">
             <img :src="post.feature_image">
             <div class="content">
-              <span>{{ post.authors[0].name }}</span>
               <nuxt-link :to="{ path: post.slug }">{{ post.title }}</nuxt-link>
               <p>{{ post.excerpt }}</p>
+              <span>{{ post.authors[0].name }}</span>
             </div>
           </li>
         </ul>
@@ -61,6 +62,7 @@
 
     p {
       margin-bottom: 2em;
+      color: #35353D;
       padding-bottom: 2em;
     }
   }
@@ -88,7 +90,7 @@
     a {
       font-size: 1.5em;
       text-decoration: none;
-      color: black;
+      color: #35353D;
       font-weight: bold;
       display: block;
       margin: -.1em 0 .2em;
@@ -96,12 +98,14 @@
     h2 {
       padding: .8em;
       margin: 1em 0;
+      color: #35353D;
       text-transform: uppercase;
       font-size: .8em;
     }
     span {
       color: $primary-color;
       text-transform: uppercase;
+      font-size: 0.5em;
     }
   }
   @media only screen and (min-width: 768px) {

@@ -8,9 +8,9 @@
           </nuxt-link>
           <nav>
             <ul>
-              <li>
-                <nuxt-link to="/terradia-cest-quoi">À Propos</nuxt-link>
-              </li>
+<!--              <li>-->
+<!--                <nuxt-link to="/terradia-cest-quoi">À Propos</nuxt-link>-->
+<!--              </li>-->
               <li>
                 <nuxt-link to="/contact">Contact</nuxt-link>
               </li>
@@ -35,7 +35,7 @@
         </a>
       </div>
       <div class="copyrights">
-        &copy; 2019 Terradia - Tous droits réservés.
+        &copy; 2020 Terradia - Tous droits réservés.
       </div>
     </footer>
   </div>
@@ -71,8 +71,7 @@
   }
 
   html {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Montserrat';
     font-size: 16px;
     word-spacing: 1px;
     -ms-text-size-adjust: 100%;

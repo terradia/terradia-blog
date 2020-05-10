@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <h1>{{ post.title }}</h1>
+    <h1 style="color: #2BA54C">{{ post.title }}</h1>
     <main class="main">
       <div class="content">
-        <img :src="post.feature_image">
+<!--        <img :src="post.feature_image">-->
         <div v-html="post.html" class="article"></div>
       </div>
     </main>
@@ -24,19 +24,50 @@
   }
 </script>
 
+<style lang="scss">
+  .kg-image {
+    width: 60%;
+  }
+
+  .kg-image-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h3 {
+    color: #2BA54C;
+  }
+
+  strong {
+    color: #5CC04A;
+  }
+
+</style>
+
 <style lang="scss" scoped>
 
   .container {
     overflow: hidden;
   }
 
+  .content {
+    display: block;
+    margin-top: 1em;
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
+    align-items: center;
+  }
+
   .article {
     display: flex;
     align-content: center;
-    text-align: center;
-    justify-content: center;
+    text-align: justify;
     flex-direction: column;
-    align-items: center;
+    margin: 3em;
+    color: #35353D;
   }
 
   h1 {
@@ -44,34 +75,23 @@
     background-color: white;
     border-radius: 0.5em;
     text-align: center;
-    //padding: 1em;
-    //box-shadow: 5px 21px 40px 0px rgba(0,0,0,0.3);
   }
 
   .main {
     padding-bottom: 1em;
   }
 
-  .content {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin-top: 1em;
-    background-color: white;
-    border-radius: 1em;
-    padding: 1em;
-    //box-shadow: 5px 21px 40px 0px rgba(0,0,0,0.3);
-  }
+
 
   img {
     margin-bottom: 3em;
-    width: 100%;
+    width: 10em;
   }
 
-  @media only screen and (min-width: 768px) {
-    .content {
-      padding: 2em;
+  @media (max-width: 500px) {
+    .article {
+      margin: 0em;
     }
+
   }
 </style>
