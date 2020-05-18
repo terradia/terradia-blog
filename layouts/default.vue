@@ -11,9 +11,9 @@
 <!--              <li>-->
 <!--                <nuxt-link to="/terradia-cest-quoi">À Propos</nuxt-link>-->
 <!--              </li>-->
-              <li>
-                <nuxt-link to="/contact">Contact</nuxt-link>
-              </li>
+<!--              <li>-->
+<!--                <nuxt-link to="/contact">Contact</nuxt-link>-->
+<!--              </li>-->
             </ul>
           </nav>
         </div>

@@ -1,7 +1,7 @@
 {
   "name": "terradia-blog",
   "version": "1.0.0",
-  "description": "Blog",
+  "description": "Bienvenue sur le blog de Terradia, vous retrouverez ici des informations liées au développement de l'application!",
   "author": "FRANCK Pierre-Antoine",
   "private": true,
   "scripts": {
